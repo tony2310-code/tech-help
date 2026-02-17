@@ -3,179 +3,619 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>In-home Computer Help in Montreal</title>
-  <meta name="description" content="In-home computer help in Montreal. Calm, clear, and professional. No upsells. No pressure." />
+  <title>NDG Computer Help | WiFi, Printer, Slow Laptop</title>
+  <meta name="description" content="NDG in-home computer help with clear flat pricing. WiFi issues, printer setup, slow laptop fixes, email problems. Guarantee and scope control." />
   <style>
-    :root {
-      --bg: #f6f8fb;
-      --card: #ffffff;
-      --text: #1f2933;
-      --muted: #4b5563;
-      --accent: #2563eb;
-      --border: #e5e7eb;
-      --fb: #1877f2;
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1b33;
+      --panel2:#101f3d;
+      --text:#e9eefc;
+      --muted:#b8c3e6;
+      --accent:#6aa7ff;
+      --good:#63d49c;
+      --warn:#ffd36a;
+      --line:rgba(233,238,252,.12);
+      --shadow: 0 12px 28px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 980px;
     }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.6;
-      background: var(--bg);
-      color: var(--text);
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(106,167,255,.22), transparent 55%),
+                  radial-gradient(1200px 600px at 80% 20%, rgba(99,212,156,.16), transparent 55%),
+                  var(--bg);
+      line-height:1.35;
     }
-    .wrap {
-      max-width: 780px;
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 18px 48px}
+    .top{
+      padding:22px 18px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,31,61,.92), rgba(15,27,51,.92));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      margin-top: 14px;
+    }
+
+    /* Sticky contact bar */
+    .bar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11,18,32,.92);
+      backdrop-filter: blur(10px);
+    }
+    .barin{
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 32px 18px 64px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 18px;
+    .barleft{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
     }
-    h1 {
-      font-size: 30px;
-      margin: 0 0 6px;
+    .barright{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap: wrap;
     }
-    h2 {
-      font-size: 19px;
-      margin: 0 0 10px;
-      color: var(--accent);
+    .mini{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(16,31,61,.55);
+      color: var(--muted);
+      font-size: 13px;
     }
-    p { margin: 10px 0; }
-    ul {
-      margin: 10px 0;
-      padding-left: 18px;
-    }
-    li { margin: 6px 0; }
-    .muted { color: var(--muted); }
-    .reassure {
-      font-weight: 600;
-      color: #111;
-    }
-    .price {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 6px 0;
-    }
-    .price-note {
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: 4px;
-    }
-    .cta {
-      display: inline-block;
-      padding: 14px 18px;
+    .btn2{
+      display:inline-block;
+      padding:10px 12px;
       border-radius: 14px;
-      background: var(--accent);
-      color: #ffffff;
-      text-decoration: none;
-      margin-top: 12px;
-      font-weight: 600;
-      font-size: 16px;
+      border:1px solid rgba(106,167,255,.55);
+      background: rgba(106,167,255,.14);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
     }
-    .cta.fb {
-      background: var(--fb);
+    .btn2:hover{background: rgba(106,167,255,.22)}
+    .btn2.good{
+      border-color: rgba(99,212,156,.55);
+      background: rgba(99,212,156,.12);
     }
-    .cta:hover { opacity: 0.9; }
-    .footer {
-      margin-top: 18px;
+    .btn2.good:hover{background: rgba(99,212,156,.18)}
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid rgba(106,167,255,.45);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:10px;
+      background: rgba(106,167,255,.08);
+    }
+    h1{margin:8px 0 10px; font-size:30px; letter-spacing:.2px}
+    .sub{margin:0; color:var(--muted); font-size:16px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:16px;
+    }
+    @media(min-width:860px){
+      .grid{grid-template-columns: 1.1fr .9fr;}
+      h1{font-size:34px}
+      .wrap{padding-top: 8px;}
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,27,51,.80);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+    }
+    h2{margin:0 0 10px; font-size:20px}
+    h3{margin:0 0 8px; font-size:16px; color:var(--muted)}
+    ul{margin:10px 0 0; padding-left:18px}
+    li{margin:6px 0; color:var(--text)}
+    .muted{color:var(--muted)}
+    .pillrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .pill{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:13px;
+      color:var(--muted);
+      background: rgba(16,31,61,.65);
+    }
+    .tiers{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media(min-width:860px){
+      .tiers{grid-template-columns: 1fr 1fr 1fr;}
+    }
+    .tier{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,31,61,.92), rgba(15,27,51,.88));
+      border-radius:var(--radius);
+      padding:14px;
+      position:relative;
+      overflow:hidden;
+      min-height: 290px;
+    }
+    .tier.popular{
+      border-color: rgba(99,212,156,.55);
+      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+    }
+    .tag{
+      position:absolute;
+      top:12px;
+      right:12px;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(99,212,156,.45);
+      background: rgba(99,212,156,.10);
+      color: var(--good);
+    }
+    .price{
+      font-size:26px;
+      margin:6px 0 6px;
+      letter-spacing:.2px;
+    }
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 10px;
+    }
+    .scope{
+      margin-top: 8px;
       font-size: 13px;
       color: var(--muted);
     }
-    .hero-img {
-      width: 100%;
+    .guarantee{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,211,106,.45);
+      background: rgba(255,211,106,.08);
+      color: var(--text);
+      font-size:13px;
+    }
+    .cta{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .btn{
+      display:inline-block;
+      text-align:center;
+      padding:12px 14px;
+      border-radius:14px;
+      background: rgba(106,167,255,.18);
+      border:1px solid rgba(106,167,255,.50);
+      color: var(--text);
+      font-weight:700;
+    }
+    .btn:hover{background: rgba(106,167,255,.26)}
+    .note{
+      font-size:13px;
+      color:var(--muted);
+      margin:0;
+    }
+    .split{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    @media(min-width:860px){
+      .split{grid-template-columns: 1fr 1fr;}
+    }
+    .rule{
+      border-top:1px solid var(--line);
+      margin:18px 0;
+    }
+    .footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .kicker{
+      color: var(--good);
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:13px;
+      margin:0 0 6px;
+    }
+    .warn{
+      color: var(--warn);
+      font-weight:800;
+    }
+    .proof{
+      border: 1px solid rgba(99,212,156,.28);
+      background: rgba(99,212,156,.08);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-top: 12px;
+    }
+    .proofgrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media(min-width:860px){
+      .proofgrid{grid-template-columns: 1fr 1fr 1fr;}
+    }
+    .proofitem{
+      border: 1px solid var(--line);
+      background: rgba(16,31,61,.55);
       border-radius: 14px;
-      margin-top: 14px;
-      display: block;
-      border: 1px solid var(--border);
+      padding: 12px;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .form{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    label{font-size:13px; color:var(--muted)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(11,18,32,.55);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .row2{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    @media(min-width:680px){
+      .row2{grid-template-columns: 1fr 1fr;}
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <header class="card">
-      <h1>In-home computer help in Montreal</h1>
-      <p class="muted">Calm, clear, professional tech support in your home.</p>
-      <p class="reassure">No upsells. No pressure. Just help.</p>
-      <img class="hero-img" src="hero.png" alt="In-home computer help and tech support" />
-    </header>
 
-    <section class="card">
-      <h2>If tech feels frustrating right now</h2>
-      <p>
-        Slow computers, confusing settings, and updates that change everything can be frustrating.
-        You just want it explained clearly and fixed properly.
-      </p>
-      <p>
-        I explain what I’m doing as I go and do not change important settings without your approval.
-        If it will take longer than expected, I tell you right away.
-        If something can’t be fixed, I’ll tell you honestly.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>What I help with</h2>
-      <ul>
-        <li>Slow performance, freezing, or not turning on</li>
-        <li>Wi-Fi and internet problems</li>
-        <li>Printer setup and troubleshooting</li>
-        <li>Virus or malware concerns</li>
-        <li>Software issues and updates</li>
-        <li>Fire TV Stick setup and streaming help</li>
-        <li>Phones, tablets, email, photos, and video calls</li>
-        <li>Senior-friendly training for everyday use</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Who this service is for</h2>
-      <p>This service is for home users and families who want clear, professional help with everyday technology.</p>
-      <p>This is not a retail repair shop or a call center.</p>
-    </section>
-
-    <section class="card">
-      <h2>Pricing</h2>
-      <div class="price">In-home training or repair: $100 per hour</div>
-      <div class="price-note">Patient, senior-friendly guidance is always included.</div>
-      <p>$30 call-out fee for in-home visits.</p>
-
-      <div class="price">Remote help: $100 per hour</div>
-      <p class="muted">Most visits take 60 to 90 minutes. Remote help is done by phone or screen sharing.</p>
-    </section>
-
-    <section class="card">
-      <h2>Trusted local service</h2>
-      <p>Certified computer technician with over 10 years of hands-on experience.</p>
-      <p>I’ve helped thousands of people with their computers and home technology.</p>
-      <p>Most clients come through word of mouth and call again when they need help.</p>
-    </section>
-
-    <section class="card">
-      <h2>What clients have shared</h2>
-      <p>Everything was explained clearly and calmly.</p>
-      <p>Fixed the issue in one visit and made sure everything worked.</p>
-      <p>Very professional and respectful of my time.</p>
-      <p>I would call again if I need help.</p>
-    </section>
-
-    <section class="card">
-      <h2>Contact</h2>
-      <p>Text or message me directly. Phone and messages go to the same place.</p>
-      <p>When you contact me, tell me your device, what is happening, and your neighborhood.</p>
-
-      <a class="cta" href="sms:+14386013763">Text or Message Me</a>
-
-      <p class="muted">Prefer Facebook?</p>
-
-      <a class="cta fb" href="https://m.me/mark.gittens.3517">Message me on Facebook</a>
-
-      <div class="footer">
-        Service area: Montreal. In-home visits by appointment.
+  <div class="bar">
+    <div class="barin">
+      <div class="barleft">
+        <span class="mini">NDG and nearby</span>
+        <span class="mini">Replace number: <strong>438-000-0000</strong></span>
       </div>
-    </section>
-  </main>
+      <div class="barright">
+        <a class="btn2 good" style="font-size:14px; padding:12px 16px;" href="sms:438-000-0000">Text your issue now</a>
+        <a class="btn2" href="tel:438-000-0000">Call now</a>
+        <a class="btn2" href="#message">Send details</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="top">
+      <div class="badge">NDG in-home computer help</div>
+      <h1>NDG WiFi, Printer, and Slow Laptop Help. Clear Scope. Flat Pricing.</h1>
+      <div style="margin-top:16px; text-align:center;">
+        <img src="your-photo.jpg" alt="Local NDG Tech Support" 
+             style="max-width:220px; width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);" />
+        <p class="muted" style="margin:8px 0 0;">Your local in-home tech support in NDG</p>
+      </div>
+
+      <p class="sub">You tell me what is happening. You choose a tier. I explain everything calmly. No tech jargon.</p>
+      <p class="sub" style="margin-top:10px;"><strong>Clear scope before work starts. No surprise add-on charges.</strong></p>
+      <div class="card" style="margin-top:14px;">
+        <h2 style="margin:0 0 8px;">How booking works</h2>
+        <ol style="margin:0; padding-left:18px;">
+          <li>Text your issue now</li>
+          <li>I confirm the right tier</li>
+          <li>We book a visit time</li>
+        </ol>
+      </div>
+
+      <p class="sub" style="margin-top:10px;"><strong>Availability.</strong> Limited to 2 in-home visits per day.</p>
+      <p class="sub" style="margin-top:6px;"><strong>Fast reply.</strong> If you text, you usually get a response the same day.</p>
+      <p class="sub" style="margin-top:6px;"><strong>Calm support.</strong> You get clear explanations and no surprise add-on charges.</p>
+
+
+
+      <div class="grid">
+        <div class="card">
+          <p class="kicker">Common problems I fix</p>
+          <ul>
+            <li>Computer running very slow</li>
+            <li>WiFi connected but no internet</li>
+            <li>Printer not printing or not connecting</li>
+            <li>Streaming device or Smart TV apps not working</li>
+            <li>Email not sending or receiving</li>
+            <li>New laptop setup and data transfer</li>
+            <li>Virus popups or suspicious warnings</li>
+            <li>Updates broke something</li>
+            <li>Storage full</li>
+            <li>Password lockout</li></ul>
+
+          <div class="rule"></div>
+          <p class="muted" style="margin:0 0 8px;"><strong>Top fixes</strong></p>
+          <div class="pillrow">
+            <a class="pill" href="#wifi">WiFi help</a>
+            <a class="pill" href="#printer">Printer help</a>
+            <a class="pill" href="#slow">Slow computer</a>
+          </div>
+
+          </ul>
+
+          <div class="pillrow" aria-label="quick outcomes">
+            <span class="pill">Clear outcomes</span>
+            <span class="pill">Flat pricing</span>
+            <span class="pill">Calm support</span>
+            <span class="pill">Scope protected</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="kicker">How it works</p>
+          <ol class="muted" style="margin:10px 0 0; padding-left:18px;">
+            <li style="margin:6px 0;">You send the details below, then I confirm the right tier.</li>
+            <li style="margin:6px 0;">We book a visit time.</li>
+            <li style="margin:6px 0;">I fix it and explain what changed.</li>
+          </ol>
+          <div class="rule"></div>
+          <p class="muted" style="margin:0;">
+            <span class="warn">Guarantee.</span> If I cannot resolve the issue within the scope you chose, you do not pay.
+          </p>
+          <p class="muted" style="margin:10px 0 0;">
+            <span class="warn">Privacy.</span> I do not keep your passwords. I do not open personal files unless you ask me to.
+          </p>
+          <p class="muted" style="margin:10px 0 0;">
+            <span class="warn">Local.</span> I serve NDG and nearby areas. In-home visits only.
+          </p>
+
+        </div>
+      </div>
+
+      <div class="proof" aria-label="proof">
+        <h2 style="margin:0 0 6px;">Recent fixes</h2>
+        <p class="muted" style="margin:0;">Replace these with your real examples as you complete jobs.</p>
+        <p class="muted" style="margin:0 0 8px;">Most issues are resolved in a single visit when caught early.</p>
+        <div class="proofgrid">
+          <div class="proofitem">WiFi restored and devices reconnected. Visit took under 60 minutes.</div>
+          <div class="proofitem">Printer reconnected and set as default. Printing worked before I left.</div>
+          <div class="proofitem">Laptop speed improved. Startup cleaned and storage freed.</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h2>Choose your option</h2>
+        <p class="muted" style="margin:0 0 10px;">Flat pricing with clear scope and time protection.</p>
+
+        <div class="card" style="margin:0 0 12px;">
+          <h2 style="margin:0 0 6px;">Quick remote check</h2>
+          <p class="muted" style="margin:0 0 8px;">15 minutes. We identify the issue and the best tier for a fix. Small tech issues often turn into bigger ones if ignored. Remote sessions use RustDesk.</p>
+          <div class="row2">
+            <div>
+              <div class="price" style="margin:0;">$39</div>
+              <p class="small" style="margin:0;">If you book an in-home tier within 7 days, the $39 is credited.</p>
+            </div>
+            <div>
+              <p class="muted" style="margin:0 0 6px;"><strong>Best for</strong></p>
+              <ul style="margin:0; padding-left:18px;">
+                <li>Quick diagnosis</li>
+                <li>Deciding the right tier</li>
+                <li>Simple fixes that can be done remotely</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cta" style="margin-top:12px;">
+            <a class="btn" href="sms:438-000-0000">Text to book a remote check</a>
+            <p class="note">Text “Remote Check” and your main problem. I will reply with the next available time.</p>
+          </div>
+        </div>
+
+
+        <div class="tiers">
+          <div class="tier">
+            <h3>Basic Fix</h3>
+            <div class="price">$120</div>
+            <p class="small">Best for one specific issue.</p>
+            <ul>
+              <li>WiFi connection problem</li>
+              <li>Printer connection problem</li>
+              <li>Email setup issue</li>
+              <li>Simple slowdown cleanup</li>
+            </ul>
+            <p class="scope">Scope rule. One issue. Up to 90 minutes. If it expands, I quote before continuing.</p>
+            <div class="guarantee">If I cannot resolve the issue in scope, you do not pay.</div>
+          </div>
+
+          <div class="tier popular">
+            <div class="tag">Most popular</div>
+            <h3>Home Tech Reset</h3>
+            <div class="price">$179</div>
+            <p class="small">Best for most homes.</p>
+            <ul>
+              <li>WiFi stability check</li>
+              <li>Speed optimization and startup cleanup</li>
+              <li>Updates and storage cleanup</li>
+              <li>Printer reconnect</li>
+              <li>Streaming device setup and app login help</li>
+              <li>Basic security check</li>
+            </ul>
+            <p class="scope">Scope rule. Most issues resolved within 2 hours. If it turns into a deeper problem, I quote before continuing.</p>
+            <div class="guarantee">If I cannot resolve the issue in scope, you do not pay.</div>
+          </div>
+
+          <div class="tier">
+            <h3>Complete Setup</h3>
+            <div class="price">$249</div>
+            <p class="small">Best for new device or full refresh.</p>
+            <ul>
+              <li>Everything in Home Tech Reset</li>
+              <li>New device setup</li>
+              <li>Data transfer and email configuration</li>
+              <li>One follow up remote check</li>
+            </ul>
+            <p class="scope">Scope rule. Built for larger jobs. If data transfer is extremely large, I quote before starting.</p>
+            <div class="guarantee">If I cannot resolve the issue in scope, you do not pay.</div>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="card" style="margin:0;">
+            <h2>Scope and boundaries</h2>
+            <p class="muted" style="margin:0 0 8px;">If it is outside scope, I tell you before we continue.</p>
+            <ul>
+              <li>Not hardware replacement</li>
+              <li>Not liquid damage</li>
+              <li>Not screen repair</li>
+              <li>Not data recovery from failed drives</li>
+            </ul>
+            <p class="muted" style="margin:10px 0 0;">If it turns out to be hardware failure, I explain the options before any charge.</p>
+            <p class="muted" style="margin:10px 0 0;">Streaming support includes device configuration and official app installation only. It does not include third party subscription content or illegal streaming setup.</p></p>
+          </div>
+
+          <div class="card" style="margin:0;">
+            <h2>Ongoing clients and referrals</h2>
+            <p class="muted" style="margin:0 0 8px;">This is how you get priority support and earn credits.</p>
+            <ul>
+              <li><strong>Priority Tech Care Plan.</strong> $49 per month.</li>
+              <li>Most clients join after their first visit</li>
+              <li>Monthly remote check</li>
+              <li>Priority booking</li>
+              <li>Discounted in-home visits</li>
+            </ul>
+            <div class="rule"></div>
+            <p class="muted" style="margin:0 0 8px;"><strong>Referral credit.</strong> When someone you refer books a tier visit, you get a $25 service credit for your next visit.</p>
+            <p class="muted" style="margin:0;">Credits are not stackable and expire after 90 days.</p>
+          </div>
+        </div>
+
+        
+          <div class="card" style="margin:14px 0;">
+            <h2 style="margin:0 0 8px;">How remote setup works</h2>
+            <ol style="margin:0; padding-left:18px;">
+              <li>Install RustDesk</li>
+              <li>Send your ID and one-time password</li>
+              <li>Stay on screen while I fix the issue</li>
+            </ol>
+            <p class="muted" style="margin:8px 0 0;">Remote help is for common fixes only. If it requires hands-on work, I will recommend an in-home tier.</p>
+          </div>
+
+<div id="message" class="card" style="margin-top:12px;">
+          <h2>Send a message with these details</h2>
+          <p class="muted" style="margin:0 0 10px;">This helps me confirm the right tier and protects time for both of us.</p>
+
+          <div class="row2">
+            <div>
+              <label for="device">Device</label>
+              <input id="device" placeholder="Example: Windows laptop, MacBook, desktop" />
+            </div>
+            <div>
+              <label for="area">Area</label>
+              <input id="area" placeholder="Example: NDG, near Benny and Sherbrooke" />
+            </div>
+          </div>
+
+          <div class="row2" style="margin-top:10px;">
+            <div>
+              <label for="tier">Preferred tier</label>
+              <select id="tier">
+                <option value="Home Tech Reset ($179)">Home Tech Reset ($179)</option>
+                <option value="Basic Fix ($120)">Basic Fix ($120)</option>
+                <option value="Complete Setup ($249)">Complete Setup ($249)</option>
+              </select>
+            </div>
+            <div>
+              <label for="tried">What have you tried so far</label>
+              <input id="tried" placeholder="Example: restarted router, reinstalled printer, ran updates" />
+            </div>
+          </div>
+
+          <div class="form">
+            <div>
+              <label for="problem">What is happening right now</label>
+              <textarea id="problem" placeholder="Example: WiFi connects but pages do not load. Printer says offline. Laptop takes 5 minutes to start."></textarea>
+            </div>
+
+            <div class="cta">
+              <a class="btn" href="#" onclick="copyTemplate(); return false;">Copy message template</a>
+              <a class="btn" href="sms:438-000-0000" onclick="return smsWithTemplate();">Text this template</a>
+              <p class="note">Replace the phone number in this file first. The button uses your phone texting app.</p>
+            </div>
+          </div>
+
+          <div class="footer">
+            This page provides general information only. Results depend on device condition and issue type.
+          </div>
+            <div class="rule"></div>
+            <p class="muted" style="margin:0 0 8px;"><strong>Reviews.</strong> Neighbors trust neighbors. If I helped you before, your short Google review helps someone else decide.</p>
+            <p class="muted" style="margin:0;">Add your review here. Replace this link later. <a href="#" aria-label="google review link">Google review link</a></p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  function buildTemplate(){
+    const device = document.getElementById('device').value || '[device]';
+    const area = document.getElementById('area').value || '[area]';
+    const tier = document.getElementById('tier').value || '[tier]';
+    const tried = document.getElementById('tried').value || '[what you tried]';
+    const problem = document.getElementById('problem').value || '[what is happening right now]';
+
+    return `Hi, I would like help with a computer issue in NDG.
+
+Device: ${device}
+Area: ${area}
+Tier: ${tier}
+Tried so far: ${tried}
+Problem: ${problem}
+
+Best time for a visit: [your time]`;
+  }
+
+  function copyTemplate(){
+    const text = buildTemplate();
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Copied. Paste this into your message.');
+    }).catch(() => {
+      alert('Could not copy. You can manually select and copy the text.');
+    });
+  }
+
+  function smsWithTemplate(){
+    const text = encodeURIComponent(buildTemplate());
+    const link = "sms:438-000-0000?&body=" + text;
+    window.location.href = link;
+    return false;
+  }
+</script>
 </body>
 </html>
